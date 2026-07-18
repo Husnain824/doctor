@@ -983,6 +983,49 @@ footer{
   .cred-card{flex-direction:column}
   .footer-inner{flex-direction:column;text-align:center}
   .footer-links{justify-content:center;flex-wrap:wrap}
+
+  /* Hero credentials card */
+  .hero-doc-card{padding:24px 20px;border-radius:24px}
+  .doc-photo-area{width:96px;height:96px;margin-bottom:18px}
+  .card-name{font-size:19px}
+  .card-spec{font-size:10px;margin-bottom:18px}
+  .card-creds{gap:8px;margin-bottom:18px}
+  .card-cred{padding:9px 12px;gap:8px}
+  .card-cred strong{font-size:11px}
+  .card-cred span{font-size:11px}
+  .gold-medal-badge{padding:10px}
+  .gold-medal-badge span{font-size:11px}
+
+  /* Vital signs / ECG strip */
+  .ecg-strip{padding:14px 0}
+  .ecg-inner{padding:0 16px;gap:12px}
+  .ecg-label{font-size:8px;letter-spacing:.1em}
+  .ecg-label:last-child{display:none}
+  .ecg-svg-wrap{height:30px}
+  .ecg-svg-wrap svg{height:30px}
+  .ecg-dot{width:6px;height:6px}
+
+  /* Qualifications & Certifications */
+  #credentials{padding:56px 0}
+  .cred-grid{gap:14px}
+  .cred-card{padding:22px 18px;gap:14px}
+  .cred-num{font-size:32px;width:36px}
+  .cred-icon2{width:38px;height:38px;font-size:15px}
+  .cred-title{font-size:17px}
+  .cred-desc{font-size:12.5px}
+
+  /* Common operations cards */
+  #operations{padding:56px 0}
+  .op-grid{gap:12px;margin-top:32px}
+  .op-card{padding:20px 12px 18px;border-radius:18px}
+  .op-icon-wrap{width:46px;height:46px;font-size:17px;margin-bottom:12px}
+  .op-num{width:22px;height:22px;font-size:11px;margin-bottom:12px}
+  .op-name{font-size:19px;line-height:1.7}
+  .op-name-en{font-size:9px}
+
+  /* Contact form fields stack on mobile */
+  .fg-row{grid-template-columns:1fr;gap:0}
+  .contact-form{padding:26px 20px}
 }
 
 @media(max-width:340px){
@@ -990,6 +1033,7 @@ footer{
   .glance-grid{gap:8px}
   .glance-card{padding:20px 8px}
   .glance-num{font-size:28px}
+  .op-grid{grid-template-columns:1fr}
 }
 
 .p1 {
@@ -1086,15 +1130,15 @@ footer{
           </div>
           <div class="card-cred">
             <i class="fa-solid fa-certificate"></i>
-            <div><strong>[Institution Name 2]</strong><br><span>[Degree / Detail]</span></div>
+            <div><strong>MCPS — General Surgery</strong><br><span>Member, College of Physicians & Surgeons Pakistan</span></div>
           </div>
           <div class="card-cred">
             <i class="fa-solid fa-book-medical"></i>
-            <div><strong>[Institution Name 3]</strong><br><span>[Degree / Detail]</span></div>
+            <div><strong>CPSP Certified</strong><br><span>College of Physicians & Surgeons Pakistan</span></div>
           </div>
           <div class="card-cred">
             <i class="fa-solid fa-user-doctor"></i>
-            <div><strong>[Institution Name 4]</strong><br><span>[Degree / Detail]</span></div>
+            <div><strong>EMC — Emergency Medicine</strong><br><span>Consultant, Emergency Medicine & Surgery</span></div>
           </div>
         </div>
         <div class="gold-medal-badge">
@@ -1327,7 +1371,7 @@ footer{
       <div class="inst-card">
         <div class="inst-ribbon">Owner</div>
         <div class="inst-icon"><i class="fa-solid fa-school"></i></div>
-        <div class="inst-name">Nawaz Eminence<br>School</div>
+        <div class="inst-name">Nawaz Sharif School<br>of Eminence</div>
         <p class="inst-desc">Quality school education for the next generation.</p>
       </div>
     </div>
