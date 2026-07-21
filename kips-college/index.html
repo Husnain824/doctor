@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIPS College Pattoki — Excellence in Education</title>
+<meta name="description" content="KIPS College Pattoki: Intermediate and Bachelor programs in Pre-Medical, Pre-Engineering, Computer Science and more. Board toppers, ECAT record holders, dedicated faculty.">
+<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1A1A;
+    --navy:#0F2A43;
+    --navy-dim:#1B3E5E;
+    --paper:#F7F4EC;
+    --paper-dim:#EFEADC;
+    --card-bg:#ffffff;
+    --brass:#C89B3C;
+    --brass-soft:#E4C877;
+    --green:#2F5D3A;
+    --red:#8C2F2F;
+    --line:rgba(15,42,67,0.16);
+    --line-strong:rgba(15,42,67,0.3);
+    --shadow: 0 20px 50px -25px rgba(15,42,67,0.35);
+    --body-copy:#3a3a3a;
+    --body-copy-soft:#444;
+    --header-bg:rgba(247,244,236,0.92);
+    --heading:var(--navy);
+    --on-navy:var(--paper);
+    color-scheme: light;
+  }
+  [data-theme="dark"]{
+    --ink:#EDEAE0;
+    --navy:#1E4A73;
+    --navy-dim:#7FA8CE;
+    --paper:#0E1B29;
+    --paper-dim:#14273A;
+    --card-bg:#152A3E;
+    --brass:#D9AE55;
+    --brass-soft:#EAC978;
+    --green:#4F8B5D;
+    --red:#C4645F;
+    --line:rgba(230,225,210,0.14);
+    --line-strong:rgba(230,225,210,0.24);
+    --shadow: 0 20px 50px -25px rgba(0,0,0,0.6);
+    --body-copy:#C7CDD4;
+    --body-copy-soft:#B7C0C9;
+    --header-bg:rgba(14,27,41,0.92);
+    --heading:#AFCBEC;
+    --on-navy:#F3F0E6;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    transition:background .3s ease, color .3s ease;
+  }
+  ::selection{ background:var(--brass-soft); color:var(--navy); }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--heading);
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'Space Mono', monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 28px; }
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- top ribbon ---------- */
+  .ribbon{
+    background:var(--navy);
+    color:var(--brass-soft);
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    padding:8px 16px;
+  }
+  .ribbon a{ color:#fff; border-bottom:1px solid var(--brass); padding-bottom:1px; }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:var(--header-bg);
+    transition:background .3s ease;
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{
+    width:44px; height:44px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark img{ width:100%; height:100%; object-fit:contain; }
+  .brand-text{ line-height:1.15; }
+  .brand-text strong{ display:block; font-family:'Fraunces',serif; font-size:1.05rem; color:var(--heading); font-weight:600; }
+  .brand-text span{ font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy-dim); font-family:'Space Mono',monospace; }
+
+  nav ul{ display:flex; gap:32px; list-style:none; }
+  nav ul li a{
+    font-size:0.94rem; font-weight:500; color:var(--heading);
+    position:relative; padding-bottom:4px;
+  }
+  nav ul li a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:2px;
+    background:var(--brass); transition:width .25s ease;
+  }
+  nav ul li a:hover::after{ width:100%; }
+
+  .nav-cta{
+    background:var(--navy); color:var(--on-navy);
+    padding:10px 22px; border-radius:2px;
+    font-weight:600; font-size:0.9rem;
+    border:1px solid var(--navy);
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{ background:transparent; color:var(--heading); }
+
+  .burger{ display:none; background:none; border:none; cursor:pointer; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--heading); margin:5px 0; }
+
+  .theme-toggle{
+    width:40px; height:40px; border-radius:50%;
+    border:1px solid var(--line-strong); background:transparent;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; margin-right:16px; flex-shrink:0;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--brass); transform:rotate(-14deg); }
+  .theme-icon{ font-size:1.05rem; color:var(--heading); line-height:1; }
+
+  /* ---------- hero: result-card motif ---------- */
+  .hero{
+    position:relative;
+    padding:72px 0 60px;
+    background:
+      linear-gradient(180deg, var(--paper) 0%, var(--paper) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Space Mono',monospace; font-size:0.78rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--green);
+    background:rgba(47,93,58,0.08);
+    border:1px solid rgba(47,93,58,0.3);
+    padding:6px 14px; border-radius:2px; margin-bottom:22px;
+  }
+  .eyebrow::before{ content:'●'; font-size:0.6rem; color:var(--green); }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.4vw, 3.6rem);
+    line-height:1.06;
+    margin-bottom:20px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--brass); }
+  .hero p.lede{
+    font-size:1.12rem; color:var(--body-copy); max-width:520px; margin-bottom:30px;
+  }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:36px; }
+  .btn-primary, .btn-ghost{
+    padding:14px 28px; font-weight:600; font-size:0.95rem; border-radius:2px;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:all .2s ease;
+  }
+  .btn-primary{ background:var(--navy); color:var(--on-navy); border:1px solid var(--navy); }
+  .btn-primary:hover{ background:var(--brass); border-color:var(--brass); color:var(--navy); }
+  .btn-ghost{ border:1px solid var(--line-strong); color:var(--heading); }
+  .btn-ghost:hover{ border-color:var(--navy); background:rgba(15,42,67,0.04); }
+
+  .hero-stats{ display:flex; gap:0; border-top:1px solid var(--line-strong); padding-top:22px; }
+  .hstat{ flex:1; padding-right:20px; }
+  .hstat + .hstat{ border-left:1px solid var(--line); padding-left:20px; }
+  .hstat .num{ font-family:'Space Mono',monospace; font-weight:700; font-size:1.6rem; color:var(--heading); }
+  .hstat .num span{ color:var(--brass); }
+  .hstat .lbl{ font-size:0.78rem; color:var(--body-copy-soft); margin-top:2px; }
+
+  /* the "result card" visual */
+  .result-card{
+    background:var(--card-bg);
+    border:1px solid var(--line-strong);
+    box-shadow:var(--shadow);
+    position:relative;
+    padding:0;
+    transform:rotate(1.2deg);
+  }
+  .result-card::before{
+    content:'';
+    position:absolute; inset:10px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .rc-head{
+    background:var(--navy); color:var(--on-navy);
+    padding:18px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .rc-head .tag{ font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; color:var(--brass-soft); }
+  .rc-head h4{ color:#fff; font-size:1.05rem; margin-top:2px; }
+  .rc-seal{
+    width:46px; height:46px; border-radius:50%;
+    background:#fff;
+    border:2px solid var(--brass);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; padding:6px;
+  }
+  .rc-seal img{ width:100%; height:100%; object-fit:contain; }
+  .rc-body{ padding:24px; }
+  .rc-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:11px 0; border-bottom:1px dashed var(--line-strong);
+    font-size:0.92rem;
+  }
+  .rc-row:last-child{ border-bottom:none; }
+  .rc-row .subj{ color:var(--body-copy); }
+  .rc-row .mark{ font-family:'Space Mono',monospace; font-weight:700; color:var(--heading); }
+  .rc-row .mark.top{ color:var(--green); }
+  .rc-foot{
+    background:var(--paper-dim); padding:16px 24px;
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--line-strong);
+  }
+  .rc-foot .total{ font-family:'Space Mono',monospace; font-weight:700; color:var(--heading); }
+  .rc-foot .stamp{
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.05em;
+    color:var(--brass); border:1px solid var(--brass); padding:4px 10px; border-radius:2px;
+    transform:rotate(-4deg);
+  }
+
+  /* ---------- section shells ---------- */
+  section{ padding:88px 0; }
+  .section-head{ max-width:640px; margin-bottom:52px; }
+  .section-head .eyebrow{ margin-bottom:16px; }
+  .section-head h2{ font-size:clamp(1.8rem, 3vw, 2.5rem); margin-bottom:14px; }
+  .section-head p{ color:var(--body-copy-soft); font-size:1.02rem; }
+
+  .divider-line{
+    border:none; height:1px; background:var(--line-strong);
+  }
+
+  /* ---------- principal ---------- */
+  .principal{ background:var(--navy); color:var(--on-navy); }
+  .principal .wrap{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center; }
+  .principal .eyebrow{ color:var(--brass-soft); border-color:rgba(200,155,60,0.4); background:rgba(200,155,60,0.1); }
+  .principal .eyebrow::before{ color:var(--brass-soft); }
+  .principal h2{ color:#fff; }
+  .principal-photo{
+    aspect-ratio:4/5; border-radius:2px; overflow:hidden;
+    border:1px solid rgba(255,255,255,0.15);
+    background:linear-gradient(160deg, #1B3E5E, #0F2A43 60%);
+    position:relative;
+  }
+  .principal-photo img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+  .principal-photo::before{
+    content:'"'; position:absolute; top:8px; left:16px; font-family:'Fraunces',serif;
+    font-size:4rem; color:rgba(200,155,60,0.6); line-height:1; z-index:1;
+  }
+  blockquote{
+    font-family:'Fraunces',serif; font-size:1.28rem; font-weight:300; font-style:italic;
+    color:#EFE9DA; line-height:1.55; margin-bottom:26px;
+  }
+  .p-name{ font-weight:700; color:#fff; font-family:'Inter',sans-serif; }
+  .p-title{ font-size:0.85rem; color:var(--brass-soft); font-family:'Space Mono',monospace; letter-spacing:0.03em; }
+
+  /* ---------- campuses ---------- */
+  .campus-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .campus-card{
+    border:1px solid var(--line-strong); background:var(--card-bg);
+  }
+  .campus-visual{
+    aspect-ratio:16/9; position:relative; overflow:hidden;
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+  }
+  .campus-visual .tile{ background:var(--paper-dim); position:relative; overflow:hidden; }
+  .campus-visual .tile img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+  .campus-visual .tile:hover img{ transform:scale(1.06); }
+  .campus-body{ padding:26px; }
+  .campus-tag{ font-family:'Space Mono',monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--brass); text-transform:uppercase; }
+  .campus-body h3{ margin:6px 0 10px; font-size:1.4rem; }
+  .campus-loc{ font-size:0.88rem; color:var(--green); margin-bottom:12px; display:flex; gap:6px; align-items:flex-start; }
+  .campus-desc{ color:var(--body-copy-soft); font-size:0.95rem; }
+
+  /* ---------- programs ---------- */
+  .prog-tabs{ display:flex; gap:8px; margin-bottom:36px; border-bottom:1px solid var(--line-strong); }
+  .prog-tab{
+    padding:12px 4px; margin-right:28px; font-weight:600; color:var(--body-copy-soft); cursor:pointer;
+    border-bottom:2px solid transparent; margin-bottom:-1px; font-size:0.98rem;
+    background:none; border-top:none; border-left:none; border-right:none;
+  }
+  .prog-tab.active{ color:var(--heading); border-bottom-color:var(--brass); }
+  .prog-panel{ display:none; }
+  .prog-panel.active{ display:grid; }
+
+  .prog-grid-inter{ grid-template-columns:repeat(3, 1fr); gap:26px; }
+  .prog-grid-bs{ grid-template-columns:repeat(4, 1fr); gap:20px; }
+
+  .prog-card{
+    border:1px solid var(--line); background:var(--card-bg); padding:26px 24px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .prog-card:hover{ border-color:var(--brass); transform:translateY(-4px); }
+  .prog-num{ font-family:'Space Mono',monospace; color:var(--brass); font-size:0.8rem; margin-bottom:14px; }
+  .prog-img{
+    width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:2px;
+    margin-bottom:16px; border:1px solid var(--line);
+  }
+  .prog-card h4{ font-size:1.12rem; margin-bottom:8px; }
+  .prog-card p{ font-size:0.88rem; color:var(--body-copy-soft); }
+  .prog-grid-bs .prog-card h4{ font-size:1rem; }
+  .prog-grid-bs .prog-card p{ font-size:0.82rem; }
+
+  /* ---------- achievements ---------- */
+  .ach-list{ display:flex; flex-direction:column; }
+  .ach-item{
+    display:grid; grid-template-columns:110px 1fr; gap:32px;
+    padding:34px 0; border-bottom:1px solid var(--line);
+  }
+  .ach-item:first-child{ padding-top:0; }
+  .ach-year{ font-family:'Space Mono',monospace; font-size:1.6rem; font-weight:700; color:var(--heading); }
+  .ach-year .yr-tag{ display:block; font-size:0.68rem; letter-spacing:0.06em; color:var(--brass); margin-top:4px; font-family:'Space Mono',monospace;}
+  .ach-body{ display:grid; grid-template-columns:180px 1fr; gap:24px; align-items:start; }
+  .ach-img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--line-strong); }
+  .ach-body h3{ font-size:1.24rem; margin-bottom:10px; }
+  .ach-body p{ color:var(--body-copy-soft); font-size:0.96rem; max-width:640px; }
+  .ach-badge{
+    display:inline-block; margin-top:14px; font-family:'Space Mono',monospace; font-size:0.76rem;
+    color:var(--green); border:1px solid rgba(47,93,58,0.35); background:rgba(47,93,58,0.06);
+    padding:5px 12px; border-radius:2px;
+  }
+
+  /* ---------- life gallery ---------- */
+  .life-grid{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:18px;
+  }
+  .life-card{
+    border:1px solid var(--line); position:relative; overflow:hidden;
+    aspect-ratio:3/4; background:var(--paper-dim);
+  }
+  .life-card img{ width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
+  .life-card:hover img{ transform:scale(1.06); }
+  .life-overlay{
+    position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end;
+    padding:18px; color:#fff; background:linear-gradient(0deg, rgba(0,0,0,0.72), transparent 60%);
+  }
+  .life-overlay .lo-tag{ font-family:'Space Mono',monospace; font-size:0.66rem; letter-spacing:0.05em; opacity:0.85; margin-bottom:6px; }
+  .life-overlay h4{ color:#fff; font-size:0.94rem; line-height:1.3; }
+
+  /* ---------- directors ---------- */
+  .dir-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+  .dir-card{ text-align:left; }
+  .dir-photo{
+    width:100%; aspect-ratio:1; border-radius:2px; margin-bottom:18px;
+    background:linear-gradient(160deg, var(--paper-dim), #e2dbc9);
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line-strong);
+    overflow:hidden;
+  }
+  .dir-photo img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+  .dir-card h3{ font-size:1.1rem; margin-bottom:6px; }
+  .dir-card p{ font-size:0.85rem; color:var(--body-copy-soft); }
+
+  /* ---------- admissions steps ---------- */
+  .admit-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line-strong); border:1px solid var(--line-strong); }
+  .admit-step{ background:var(--card-bg); padding:30px 26px; position:relative; }
+  .admit-num{ font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--brass); margin-bottom:16px; }
+  .admit-step h4{ font-size:1.05rem; margin-bottom:10px; }
+  .admit-step p{ font-size:0.88rem; color:var(--body-copy-soft); }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background:var(--brass); color:var(--navy);
+    padding:56px 0; text-align:center;
+  }
+  .cta-band h2{ color:var(--navy); font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:14px; }
+  .cta-band p{ margin-bottom:26px; color:#3a2f13; }
+  .cta-band .btn-primary{ background:var(--navy); border-color:var(--navy); color:#fff; }
+  .cta-band .btn-primary:hover{ background:#fff; border-color:var(--navy); color:var(--navy); }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--navy); color:#cfd8e2; padding:64px 0 28px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+
+  .foot-brand p{ margin-top:16px; color:#9fb0c0; max-width:320px; font-size:0.92rem; }
+  footer h4{ color:#fff; font-size:0.92rem; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:18px; font-family:'Space Mono',monospace; }
+  footer ul{ list-style:none; }
+  footer ul li{ margin-bottom:11px; }
+  footer ul li a{ color:#b9c6d3; font-size:0.94rem; }
+  footer ul li a:hover{ color:var(--brass-soft); }
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.12); padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.82rem; color:#8496a8;
+  }
+  .foot-credit{
+    text-align:center; margin-top:22px; font-size:0.8rem; color:#7c8ea0;
+    font-family:'Space Mono',monospace;
+  }
+  .foot-credit .heart{ color:var(--red); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .principal .wrap{ grid-template-columns:1fr; }
+    .principal-photo{ max-width:280px; margin:0 auto; }
+    .campus-grid{ grid-template-columns:1fr; }
+    .prog-grid-inter{ grid-template-columns:repeat(2,1fr); }
+    .prog-grid-bs{ grid-template-columns:repeat(2,1fr); }
+    .life-grid{ grid-template-columns:repeat(3,1fr); }
+    .dir-grid{ grid-template-columns:1fr; max-width:340px; margin:0 auto; }
+    .admit-grid{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 720px){
+    nav ul{ display:none; }
+    .burger{ display:block; }
+    .nav-cta{ display:none; }
+    .theme-toggle{ margin-right:10px; }
+    .hero-stats{ flex-wrap:wrap; }
+    .hstat{ flex:1 1 45%; padding:10px; }
+    .ach-item{ grid-template-columns:1fr; gap:10px; }
+    .ach-body{ grid-template-columns:1fr; }
+    .ach-img{ aspect-ratio:16/9; }
+    .life-grid{ grid-template-columns:repeat(2,1fr); }
+    .admit-grid{ grid-template-columns:1fr; }
+    section{ padding:56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon">BS &amp; Intermediate Admissions 2026 Open — <a href="#admissions">Apply now</a></div>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <div class="brand-mark"><img src="assets/images/logo-transparent.png" alt="KIPS College Pattoki logo"></div>
+      <div class="brand-text">
+        <strong>KIPS College</strong>
+        <span>Pattoki</span>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#admissions">Admissions</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#life">Life at KIPS</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+      <span class="theme-icon">☾</span>
+    </button>
+    <a href="#admissions" class="nav-cta">Apply Now</a>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:64px;">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow reveal">District Kasur · Est. Result Session 2025</div>
+        <h1 class="reveal">Where every mark<br>is <em>earned</em>, not given.</h1>
+        <p class="lede reveal">KIPS College Pattoki is the top institute for Intermediate and Bachelor education in District Kasur — built on discipline, dedicated faculty, and a first-year record that speaks for itself.</p>
+        <div class="hero-actions reveal">
+          <a href="#admissions" class="btn-primary">Admissions Open 2026 →</a>
+          <a href="#programs" class="btn-ghost">View Programs</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="hstat">
+            <div class="num">1133<span>marks</span></div>
+            <div class="lbl">Kamran Siddique, HSSC-II 2025, Lahore Board</div>
+          </div>
+          <div class="hstat">
+            <div class="num">396<span>/400</span></div>
+            <div class="lbl">M. Talha Sajid — highest ECAT score on record</div>
+          </div>
+          <div class="hstat">
+            <div class="num mono">2</div>
+            <div class="lbl">Campuses — Boys &amp; Girls, separately built</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="rc-head">
+          <div>
+            <div class="tag">STUDENT RECORD · SESSION 2025</div>
+            <h4>ECAT Result Card</h4>
+          </div>
+          <div class="rc-seal"><img src="assets/images/logo-transparent.png" alt="KIPS seal"></div>
+        </div>
+        <div class="rc-body">
+          <div class="rc-row"><span class="subj">Physics</span><span class="mark top">99/100</span></div>
+          <div class="rc-row"><span class="subj">Chemistry</span><span class="mark top">98/100</span></div>
+          <div class="rc-row"><span class="subj">Mathematics</span><span class="mark top">100/100</span></div>
+          <div class="rc-row"><span class="subj">English</span><span class="mark top">99/100</span></div>
+        </div>
+        <div class="rc-foot">
+          <div>
+            <div class="mono" style="font-size:0.7rem;color:var(--body-copy-soft);">TOTAL</div>
+            <div class="total">396 / 400</div>
+          </div>
+          <div class="stamp">RECORD BREAKING</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPAL -->
+  <section class="principal">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="principal-photo">
+          <img src="assets/images/principal.png" alt="Prof. Waqar Sarwar Dar, Principal KIPS College Pattoki">
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Message from the Principal</div>
+        <blockquote>"Greetings from KIPS College Pattoki, a place where character, discipline, and knowledge combine to create promising futures. Our goal is to inspire students to achieve academic success and develop into responsible adults by offering high-quality education in a supportive setting."</blockquote>
+        <div class="p-name">Prof. Waqar Sarwar Dar</div>
+        <div class="p-title">PRINCIPAL, KIPS PATTOKI CAMPUS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPUSES -->
+  <section id="campuses">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Our Campuses</div>
+        <h2>Two campuses, one standard.</h2>
+        <p>Separate, purpose-built spaces for boys and girls — each air-conditioned, well-equipped, and designed for focus.</p>
+      </div>
+      <div class="campus-grid">
+        <div class="campus-card reveal">
+          <div class="campus-visual">
+            <div class="tile"><img src="assets/images/campus1.jpg" alt="Boys campus"></div>
+            <div class="tile"><img src="assets/images/campus2.jpg" alt="Boys campus"></div>
+            <div class="tile"><img src="assets/images/campus3.jpg" alt="Boys campus"></div>
+            <div class="tile"><img src="assets/images/campus4.jpg" alt="Boys campus"></div>
+          </div>
+          <div class="campus-body">
+            <div class="campus-tag">Boys Campus</div>
+            <h3>Hallah Chowk, Bypass Pattoki</h3>
+            <div class="campus-loc">📍 Near Hallah Chowk, Bypass Pattoki</div>
+            <p class="campus-desc">A large, air-conditioned space with well-maintained facilities and fully-equipped labs — built for learning and development.</p>
+          </div>
+        </div>
+        <div class="campus-card reveal">
+          <div class="campus-visual">
+            <div class="tile"><img src="assets/images/campus5.png" alt="Girls campus"></div>
+            <div class="tile"><img src="assets/images/campus6.jpeg" alt="Girls campus"></div>
+            <div class="tile"><img src="assets/images/campus7.jpeg" alt="Girls campus"></div>
+            <div class="tile"><img src="assets/images/campus8.jpeg" alt="Girls campus"></div>
+          </div>
+          <div class="campus-body">
+            <div class="campus-tag">Girls Campus</div>
+            <h3>Faisal Colony, Multan Road</h3>
+            <div class="campus-loc">📍 Near MCB Bank, Multan Road, Faisal Colony, Pattoki</div>
+            <p class="campus-desc">A large, air-conditioned space with well-maintained classrooms in a safe, secure environment for every student.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Programs</div>
+        <h2>Intermediate &amp; Bachelor — built around outcomes.</h2>
+        <p>A wide range of career-oriented programs. One of the top institutes for Intermediate &amp; Bachelor education in District Kasur.</p>
+      </div>
+
+      <div class="prog-tabs reveal">
+        <button class="prog-tab active" data-tab="inter">Intermediate</button>
+        <button class="prog-tab" data-tab="bs">Bachelor (BS)</button>
+      </div>
+
+      <div class="prog-panel active prog-grid-inter" id="tab-inter">
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/program-med.jpg" alt="F.Sc Pre-Medical"><div class="prog-num">01</div><h4>F.Sc Pre-Medical</h4><p>The foundation for future doctors — Biology, Chemistry &amp; Physics.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/program-eng.jpg" alt="F.Sc Pre-Engineering"><div class="prog-num">02</div><h4>F.Sc Pre-Engineering</h4><p>Math, Physics &amp; Chemistry for future engineers.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/program-ics.jpg" alt="I.C.S"><div class="prog-num">03</div><h4>I.C.S</h4><p>Computer Science with flexible elective pathways.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/program-icom.jpg" alt="I.COM"><div class="prog-num">04</div><h4>I.COM</h4><p>Accounting, Economics &amp; Business for future commerce professionals.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/program-fait.jpg" alt="F.A (IT)"><div class="prog-num">05</div><h4>F.A (IT)</h4><p>IT &amp; digital skills with an Arts foundation.</p></div>
+      </div>
+
+      <div class="prog-panel prog-grid-bs" id="tab-bs">
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-computer-science.jpg" alt="BS Computer Science"><h4>BS Computer Science</h4><p>Advanced programming and problem-solving for software &amp; AI careers.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-physics.jpg" alt="BS Physics"><h4>BS Physics</h4><p>Analytical and mathematical skills for research and engineering.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-it.jpg" alt="BS Information Technology"><h4>BS Information Technology</h4><p>Networking, databases, web systems, and cybersecurity fundamentals.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-math.jpg" alt="BS Data Science"><h4>BS Data Science</h4><p>Data analysis, machine learning, and statistics for real insight.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-english.jpg" alt="BS English"><h4>BS English</h4><p>Literature, linguistics, and communication for modern careers.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-se.jpg" alt="BS Software Engineering"><h4>BS Software Engineering</h4><p>Designing and managing reliable software systems.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-cs.jpg" alt="BS Cyber Security"><h4>BS Cyber Security</h4><p>Ethical hacking, data protection, and network security.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-zoology.jpg" alt="BS Zoology"><h4>BS Zoology</h4><p>Animal life, biology, and conservation for research careers.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bba.png" alt="BBA"><h4>BBA</h4><p>Practical business knowledge and leadership for the corporate world.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bbit.png" alt="BBIT"><h4>BBIT</h4><p>Business knowledge paired with advanced IT skills.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-chemistry.png" alt="BS Chemistry"><h4>BS Chemistry</h4><p>Scientific knowledge and lab skills for industry &amp; research.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-maths.png" alt="BS Mathematics"><h4>BS Mathematics</h4><p>Analytical, quantitative skills for data-driven careers.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-criminology.png" alt="BS Criminology"><h4>BS Criminology</h4><p>Crime, justice, and human behavior for investigation &amp; public service.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/bs-urdu.png" alt="BS Urdu"><h4>BS Urdu</h4><p>Literary knowledge and language skills for writing &amp; media.</p></div>
+        <div class="prog-card reveal"><img class="prog-img" src="assets/images/b-ed.png" alt="B.Ed"><h4>B.Ed</h4><p>Teaching skills and classroom management for future educators.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Achievements</div>
+        <h2>Alhamdulillah — a record from day one.</h2>
+        <p>Highlights from our campus, in the order they happened.</p>
+      </div>
+      <div class="ach-list">
+        <div class="ach-item reveal">
+          <div class="ach-year">2025<span class="yr-tag">ANNUAL RESULT</span></div>
+          <div class="ach-body">
+            <img class="ach-img" src="assets/images/result-posterfsc.jpg" alt="First Annual Result of KIPS College Pattoki 2025">
+            <div>
+              <h3>First Annual Result of KIPS College Pattoki</h3>
+              <p>By the grace of Almighty, KIPS College Pattoki showed outstanding results in its very first appearance in the Annual Examination 2025. Our student, Kamran Siddique, scored 1133 marks in HSSC-II 2025, Lahore Board.</p>
+              <span class="ach-badge">1133 marks — HSSC-II 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="ach-item reveal">
+          <div class="ach-year">2025<span class="yr-tag">INTERNATIONAL</span></div>
+          <div class="ach-body">
+            <img class="ach-img" src="assets/images/ach_intl1.jpg" alt="Study at Avicenna Tajik State Medical University with KIPS Pattoki">
+            <div>
+              <h3>Study at Avicenna Tajik State Medical University with KIPS Pattoki</h3>
+              <p>Prof. Waqar Sarwar Dar and Dr. Mehar Abbas (CEO, M.B.B.S Abroad Consultancy Pvt. Ltd.) joined hands to help pre-medical students become doctors abroad — with full support including residence and passport facilitation at ATSMU.</p>
+              <span class="ach-badge">MBBS Abroad Pathway</span>
+            </div>
+          </div>
+        </div>
+        <div class="ach-item reveal">
+          <div class="ach-year">2025<span class="yr-tag">ENTRY TEST</span></div>
+          <div class="ach-body">
+            <img class="ach-img" src="assets/images/ach_ecat1.jpg" alt="Entry Test Results 2025">
+            <div>
+              <h3>Entry Test Results 2025</h3>
+              <p>Our student, Muhammad Talha Sajid, topped the ECAT 1st test with a record-breaking score of 396/400 — the highest in the history of the exam. Other students also secured top positions in leading university tests across Pakistan.</p>
+              <span class="ach-badge">396 / 400 — ECAT Record</span>
+            </div>
+          </div>
+        </div>
+        <div class="ach-item reveal">
+          <div class="ach-year">2024<span class="yr-tag">BOARD RESULT</span></div>
+          <div class="ach-body">
+            <img class="ach-img" src="assets/images/ach_board1.jpg" alt="Board Results 2024">
+            <div>
+              <h3>Board Results 2024</h3>
+              <p>KIPS College Pattoki set a benchmark by leading the board in its very first results. With strong ambition and dedication, our students proved that excellence is becoming a tradition here.</p>
+              <span class="ach-badge">Board-leading result</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE AT KIPS -->
+  <section id="life" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Life at KIPS</div>
+        <h2>Extraordinary events, ordinary weeks.</h2>
+        <p>What makes our campus different from others.</p>
+      </div>
+      <div class="life-grid">
+        <div class="life-card reveal"><img src="assets/images/life_sports1.jpg" alt="78th Independence Day Celebrations"><div class="life-overlay"><div class="lo-tag">AUG 2025</div><h4>78th Independence Day Celebrations</h4></div></div>
+        <div class="life-card reveal"><img src="assets/images/life_debates1.png" alt="Prize Distribution for our ECAT Topper"><div class="life-overlay"><div class="lo-tag">PRIZE DAY</div><h4>Prize Distribution for our ECAT Topper</h4></div></div>
+        <div class="life-card reveal"><img src="assets/images/life_events1.jpg" alt="Sports Gala 2025"><div class="life-overlay"><div class="lo-tag">SPORTS</div><h4>Sports Gala 2025</h4></div></div>
+        <div class="life-card reveal"><img src="assets/images/life_societies1.jpg" alt="Qawali Night and Bonfire"><div class="life-overlay"><div class="lo-tag">CULTURE</div><h4>Qawali Night &amp; Bonfire</h4></div></div>
+        <div class="life-card reveal"><img src="assets/images/life_practical1.png" alt="Free Practical Prep for Matric Students"><div class="life-overlay"><div class="lo-tag">FREE PREP</div><h4>Free Practical Prep for Matric Students</h4></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTORS -->
+  <section id="directors">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Board of Directors</div>
+        <h2>Guided by qualified leadership.</h2>
+        <p>Committed to providing excellence and continuous progress.</p>
+      </div>
+      <div class="dir-grid">
+        <div class="dir-card reveal">
+          <div class="dir-photo"><img src="assets/images/director1.png" alt="Dr. Muhammad Shafique Jalal Ch."></div>
+          <h3>Dr. Muhammad Shafique Jalal Ch.</h3>
+          <p>General Surgeon — M.B.B.S (K.E.M.C), M.CPS, FCPS, Consultant General Surgeon, Member of Society of Surgeons of Pakistan (CPSP)</p>
+        </div>
+        <div class="dir-card reveal">
+          <div class="dir-photo"><img src="assets/images/director2.png" alt="Adv. Ch. Muhammad Aqib Zulfiqar"></div>
+          <h3>Adv. Ch. Muhammad Aqib Zulfiqar</h3>
+          <p>M.COM, L.L.B — Deen Marriage Hall, Pattoki</p>
+        </div>
+        <div class="dir-card reveal">
+          <div class="dir-photo"><img src="assets/images/principal.png" alt="Prof. Waqar Sarwar Dar"></div>
+          <h3>Prof. Waqar Sarwar Dar</h3>
+          <p>M.Sc Chemistry (Gold Medalist), M.Phil (GCU), Ph.D Scholar (GCU), MDCAT/ECAT Specialist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS -->
+  <section id="admissions-info" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Admissions 2026</div>
+        <h2>How to join KIPS College Pattoki.</h2>
+        <p>A simple, four-step process — from form to first day of class.</p>
+      </div>
+      <div class="admit-grid">
+        <div class="admit-step reveal">
+          <div class="admit-num">01</div>
+          <h4>Get the prospectus</h4>
+          <p>Visit either campus or call us to collect the admission form and fee structure.</p>
+        </div>
+        <div class="admit-step reveal">
+          <div class="admit-num">02</div>
+          <h4>Submit documents</h4>
+          <p>Matric marksheet, CNIC/B-Form copies, and passport-size photographs.</p>
+        </div>
+        <div class="admit-step reveal">
+          <div class="admit-num">03</div>
+          <h4>Merit interview</h4>
+          <p>A short interview with faculty to place you in the right section and program.</p>
+        </div>
+        <div class="admit-step reveal">
+          <div class="admit-num">04</div>
+          <h4>Confirm your seat</h4>
+          <p>Pay the admission fee to lock in your seat — sections fill on a first-come basis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="admissions">
+    <div class="wrap">
+      <h2>Admissions for 2026 are open now.</h2>
+      <p>Intermediate &amp; Bachelor programs — limited seats per section.</p>
+      <a href="tel:+923256001131" class="btn-primary">Call +92 325 6001131</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <div class="brand-mark"><img src="assets/images/logo-transparent.png" alt="KIPS College Pattoki logo"></div>
+          <div class="brand-text">
+            <strong style="color:#fff;">KIPS College</strong>
+            <span style="color:var(--brass-soft);">Pattoki</span>
+          </div>
+        </div>
+        <p>Excellence in Education &amp; Beyond. Intermediate and Bachelor programs in District Kasur.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#life">Life at KIPS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>📍 Near Hallah Chowk Bypass Pattoki, Pattoki, Pakistan</li>
+          <li>📞 <a href="tel:+923256001131">+92 325 6001131</a></li>
+          <li><a href="https://www.facebook.com/p/Kips-College-Pattoki-Deen-Campus-100088974935409/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 KIPS College Pattoki. All Rights Reserved.</span>
+      <span>Boys Campus · Hallah Chowk — Girls Campus · Faisal Colony</span>
+    </div>
+    <div class="foot-credit">Made with <span class="heart">♥</span> by Hafiz M. Husnain Noor</div>
+  </div>
+</footer>
+
+<script>
+  // theme toggle (dark/light)
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const themeIcon = themeBtn.querySelector('.theme-icon');
+  function applyTheme(mode){
+    if(mode === 'dark'){ root.setAttribute('data-theme','dark'); themeIcon.textContent = '☀'; }
+    else{ root.removeAttribute('data-theme'); themeIcon.textContent = '☾'; }
+  }
+  let savedTheme = 'light';
+  try{ savedTheme = localStorage.getItem('kips-theme') || 'light'; }catch(e){}
+  applyTheme(savedTheme);
+  themeBtn.addEventListener('click', ()=>{
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    try{ localStorage.setItem('kips-theme', next); }catch(e){}
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // program tabs
+  document.querySelectorAll('.prog-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.prog-tab').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.prog-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // mobile burger -> simple toggle of nav list
+  const burger = document.querySelector('.burger');
+  const navUl = document.querySelector('nav ul');
+  burger.addEventListener('click', ()=>{
+    const open = navUl.style.display === 'flex';
+    navUl.style.display = open ? 'none' : 'flex';
+    navUl.style.cssText += open ? '' : 'position:fixed;top:73px;left:0;right:0;background:var(--paper);flex-direction:column;padding:24px 28px;border-bottom:1px solid var(--line);gap:18px;';
+  });
+</script>
+
+</body>
+</html>
